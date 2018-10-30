@@ -1,5 +1,3 @@
-# Sécuriser une application PHP (/Laravel/Symfony...)
-
 # Security features of Laravel 5.
 [omniceps.com](http://www.omniceps.com/security-features-laravel-application-security/)
 ## Authentication system
@@ -11,6 +9,7 @@ ORM in Laravel uses PDO parameter binding in order to fight against SQL injectio
 
 ## Protection against CSRF (Cross Site Request Forgery)
 Laravel uses CSRF tokens in order to restrict 3rd parties from generating such forged requests. This is done by generating and adding a valid token that should be added in each request whether its coming from a form or whether its an AJAX request. Laravel then compares this token automatically with the value which it has saved additionally to that particular user’s session. In case the token doesn’t match with the one stored that particular request is considered to be invalid, otherwise from CSRF point of view that request is valid.
+
 Creating forms using standard HTML in blade templates, should be protected by passing the CSRF token in the form:
 ```html
 <form name="test">
@@ -31,7 +30,8 @@ Although Laravel comes with a lot of security features, which already makes it m
 
 ## Avoid using Raw Queries to prevent SQL injection
 There are still instances where a developer would like to use a raw query instead of generating a query using Laravel's ORM. But while doing so one must use prepared statements.
-Bad code :shit:
+
+**Bad code** :shit:
 The statement **1=1** used in OR condition will result in returning all the rows in the users table.
 ```php
 Route::get('this-is-prone-to-sql-injection',  function()  {
@@ -41,7 +41,9 @@ Route::get('this-is-prone-to-sql-injection',  function()  {
 	);
 });
 ```
-Good code :thumbsup:
+**Good code** :thumbsup:
+
+When Laravel will replace the question marks with query variables, it will automatically escape the input variables.
 ```php
 Route::get('safe-from-sql-injection',  function()  {
 	$name  =  "'Simon Darmandieu' OR 1=1";
