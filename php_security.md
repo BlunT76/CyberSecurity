@@ -32,6 +32,7 @@ Although Laravel comes with a lot of security features, which already makes it m
 There are still instances where a developer would like to use a raw query instead of generating a query using Laravel's ORM. But while doing so one must use prepared statements.
 
 **Bad code** :shit:
+
 The statement **1=1** used in OR condition will result in returning all the rows in the users table.
 ```php
 Route::get('this-is-prone-to-sql-injection',  function()  {
@@ -52,3 +53,24 @@ Route::get('safe-from-sql-injection',  function()  {
 	);
 });
 ```
+## Force HTTPS if your application is exchanging sensitive information
+Get an SSL certificate installed and use one of many Laravel's helpers to shift between HTTP and HTTPS and also hide certain routes. For example one can define the following filter which in turn will redirect users to a secured route:
+```php
+Route::filter('https',  function()  {
+	if  (  !  Request::secure())
+		return  Redirect::secure(URI::current());
+});
+```
+
+## Escape content to prevent XSS
+To avoid XSS attacks one should use the double brace syntax in the blade templates: **({{ $variable }})**
+
+Only use **{!! $variable !!}** syntax when you are sure that the data in the variable is safer to be displayed.
+
+## Setup Laravel security headers
+Use https://github.com/BePsvPT/secure-headers for adding extra security headers to your Laravel app. This will include all the main headers.
+
+## Use Laravel Purifier to enhance your security
+For outputting some HTML variable to the client one can use HTML Purifier which will clean up the code and take care of illegal and missing HTML.
+
+https://kuztek.com/blog/use-laravel-purifier-security
