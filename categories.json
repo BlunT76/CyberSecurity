@@ -1,0 +1,86 @@
+{	
+	"home":
+	[
+		{
+			"name":"NodeJS" ,
+			"desc":"Bonnes pratiques d'un projet Node",
+			"icon":"./images/nodejs.png",
+			"dest":"/node"
+		},
+		{
+			"name":"PHP" ,
+			"desc":"Bonnes pratiques d'un projet PHP",
+			"icon":"./images/php.png",
+			"dest":"/php"
+		},
+		{
+			"name":"Base de données" ,
+			"desc":"Comment sécuriser sa Database",
+			"icon":"./images/database.jpg",
+			"dest":"/database"
+		},
+		{
+			"name":"Bonnes pratiques" ,
+			"desc":"Liste non exhaustive de bonnes pratiques",
+			"icon":"./images/practice.jpg",
+			"dest":"/practice"
+		}
+	],
+	"node": 
+	[
+		{}
+	],
+
+	"php":
+	[
+		{
+			"name":"Laravel" ,
+			"desc":"Comment sécuriser une application Laravel"
+		},
+		{
+			"name":"Symfony" ,
+			"desc":"Comment sécuriser une application Symfony"
+		}
+	],
+
+	"database":
+	[
+		{
+			"name":"Séparer DB/serveur" ,
+			"desc":"totototo"
+		},
+		{
+			"name":"Crypter les fichiers/données",
+			"desc":"Car tout stocker en plaintext c'est pas bien"
+		},
+		{
+			"name":"Utiliser un WAF",
+			"desc":"Web Application Firewalls"
+		},
+		{
+			"name":"Effectuer les mises à jour",
+			"desc":"Patchs etc"
+		},
+		{
+			"name":"3rd party Apps",
+			"desc":"Minimiser leur utilisation"
+		},
+		{
+			"name":"Ne pas utiliser de serveur partagé",
+			"desc":"Si vous manipulez des données sensibles"
+		}
+
+	],
+	
+
+	"practice":
+	[
+		{
+			"name":"Heroku" ,
+			"desc":"Apprendre à l'utiliser proprement"
+		},
+		{	"name":"GitHub" ,
+			"desc":"Pour arrêter de push des .env"
+		}
+	]
+}

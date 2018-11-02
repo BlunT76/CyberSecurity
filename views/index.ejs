@@ -1,0 +1,24 @@
+<%- include('./partials/header.ejs') %>
+
+
+<p><%= title %></p>
+<div class="row card-deck mx-auto">
+	<% data.forEach(function(cat){ %>
+	<div class="col-md-<%= data.length>=6?4:12/data.length %> col-xs-6 mb-2">
+	<div class="card text-center">
+		<img class="card-img-top" src="<%= cat.icon %>" alt="<%= cat.name %>">
+		<div class="card-body">
+			<h3 class="card-title"><%= cat.name %></h5>
+			<p class="card-text"><%= cat.desc %></p>
+		</div>
+		<div class="card-footer d-none d-sm-block">
+			<small class="text-muted"><a href="<%= cat.dest %>" class="btn btn-dark">Voir</a></small>
+		</div>
+	</div>
+	</div>
+	<% }) %>
+</div>
+
+
+<%- include('./partials/footer.ejs') %>
+
