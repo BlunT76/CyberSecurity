@@ -15,11 +15,11 @@ router.get('/node' ,(req,res)=>
 router.get('/php' , (req,res)=>
 	res.render('index' , {title: 'Application PHP',data:cats.php}));
 
-/* GET node page */
+/* GET database page */
 router.get('/database' ,(req,res)=> 
 	res.render('index' , {title: 'Base de données',data:cats.database}));
 
-/* GET PHP page */
+/* GET good practices page */
 router.get('/practice' , (req,res)=>
 	res.render('index' , {title: 'Bonnes pratiques',data:cats.practice}));
 
